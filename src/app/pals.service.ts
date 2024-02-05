@@ -1,30 +1,57 @@
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { Observable, catchError, forkJoin, map, of, shareReplay } from 'rxjs';
+import { PalData } from './pal-data';
 
 @Injectable({
   providedIn: 'root'
 })
 export class PalsService {
 
-  private combinedData$: Observable<any> | undefined;
+  private combinedData$: Observable<PalData> | undefined;
 
   constructor(private http: HttpClient) { }
 
-  getCombinedData(): Observable<any> {
+  getCombinedData(): Observable<PalData> {
     if (!this.combinedData$) {
       const palsData$ = this.loadData('assets/pals.json');
       const breedingData$ = this.loadData('assets/breeding.json');
 
       this.combinedData$ = forkJoin([palsData$, breedingData$]).pipe(
         map(([palsData, breedingData]) => {
-          // Process the data as needed
-          const result = {
-            pals: palsData,
-            breeding: breedingData,
-            // Add additional processing here if required
-          };
-          return result;
+
+          const palData: PalData = new PalData();
+
+          const palsArray: [string, string][] = Object.entries(palsData);
+
+          console.log('Pal Database [START]');
+
+          palsArray.forEach(([key, value]) => {
+            palData.addPal(key, value);
+          });
+
+          console.log('Pal Database [END]');
+
+          palData.loadOwnedSet();
+
+          console.log('Breeding Parents [START]');
+
+          for (let firstKey in breedingData) {
+            if (breedingData.hasOwnProperty(firstKey) && typeof breedingData[firstKey] === 'object') {
+              for (let secondKey in breedingData[firstKey]) {
+                if (breedingData[firstKey].hasOwnProperty(secondKey)) {
+                  let child = palData.getPalById(breedingData[firstKey][secondKey]);
+                  let parentA = palData.getPalById(firstKey);
+                  let parentB = palData.getPalById(secondKey);
+                  child.addParentPair(parentA, parentB);
+                }
+              }
+            }
+          }
+
+          console.log('Breeding Parents [END]');
+
+          return palData;
         }),
         shareReplay(1), // Cache the result for subsequent requests
         catchError(this.handleError)
@@ -32,6 +59,7 @@ export class PalsService {
     }
     return this.combinedData$;
   }
+  
 
   private loadData(url: string): Observable<any> {
     return this.http.get(url).pipe(

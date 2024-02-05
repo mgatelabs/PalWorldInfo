@@ -7,11 +7,30 @@ import { NgxGraphModule } from '@swimlane/ngx-graph';
 import { OverallPanelComponent } from './overall-panel/overall-panel.component';
 import { HttpClientModule } from '@angular/common/http';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { ImageSelectComponent } from './image-select/image-select.component';
+import { FormsModule } from '@angular/forms';
+import {MatButtonModule} from '@angular/material/button';
+import {MatCardModule} from '@angular/material/card';
+import {MatCheckboxModule} from '@angular/material/checkbox';
+import {MatGridListModule} from '@angular/material/grid-list';
+import {MatToolbarModule} from '@angular/material/toolbar';
+import {MatMenuModule} from '@angular/material/menu';
+import {MatIconModule} from '@angular/material/icon';
+import {MatSelectModule} from '@angular/material/select';
+import { HomeComponent } from './home/home.component';
+import { MyPalsComponent } from './my-pals/my-pals.component';
+import { ParentsComponent } from './parents/parents.component';
+import { CanBreedComponent } from './can-breed/can-breed.component';
 
 @NgModule({
     declarations: [
         AppComponent,
-        OverallPanelComponent   
+        OverallPanelComponent,
+        ImageSelectComponent,
+        HomeComponent,
+        MyPalsComponent,
+        ParentsComponent,
+        CanBreedComponent   
     ],
     providers: [],
     bootstrap: [AppComponent],
@@ -20,7 +39,16 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
         AppRoutingModule,
         NgxGraphModule,
         HttpClientModule,
-        BrowserAnimationsModule
+        BrowserAnimationsModule,
+        FormsModule,
+        MatSelectModule,
+        MatToolbarModule,
+        MatMenuModule,
+        MatIconModule,
+        MatButtonModule,
+        MatGridListModule,
+        MatCheckboxModule,
+        MatCardModule
     ]
 })
 export class AppModule { }

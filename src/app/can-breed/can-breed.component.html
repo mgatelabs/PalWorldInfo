@@ -1,0 +1,27 @@
+<blockquote>Use this page to calculate which Pals you can easily breed right now.  Just make sure you've filled out the "MY Pals" page, so the system can determine what is available.</blockquote>
+<div style="text-align: center;">
+<button mat-button color="primary" (click)="calculateBreedingPairs()">Calculate Breedable Pals</button>
+</div>
+
+<mat-grid-list cols="3" rowHeight="200px" gutterSize="16px">
+    <mat-grid-tile *ngFor="let breeding of availableChildren">
+        
+        <img src="./assets/images/pals/pal{{ breeding.child.palId }}.png" alt="{{ breeding.child.palName }} Icon" class="grid-image">
+        
+        <div class="pal-number">#{{ breeding.child.palId }}</div>
+
+        <div class="grid-footer">
+            
+            <img src="./assets/images/pals/pal{{ breeding.parentA.palId }}.png" class="grid-icon"/>
+            {{ breeding.parentA.palName }} + 
+            <img src="./assets/images/pals/pal{{ breeding.parentB.palId }}.png" class="grid-icon"/>
+            {{ breeding.parentB.palName }} =
+            <br/>
+            {{ breeding.child.palName }}
+        
+        </div>
+
+
+    </mat-grid-tile>
+  </mat-grid-list>
+

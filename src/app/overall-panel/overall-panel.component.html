@@ -1,13 +1,41 @@
 <b>Start</b>
+
+<app-image-select [palData]="palData" title="Desired Child"></app-image-select>
+
 <ngx-graph
-    [view]="[800, 500]"
+    [view]="[1200, 800]"
     [links]="links"
     [nodes]="nodes"
     [curve]="curve"
     [layout]="layout"
-    [nodeWidth]="150"
-    [nodeHeight]="100"
+    [nodeWidth]="100"
+    [nodeHeight]="50"
     [layoutSettings]="layoutSettings"
     [enableZoom]="true"
-    [autoZoom]="true"
-></ngx-graph>
+    [autoZoom]="false"
+    [update$]="update$"
+>
+
+
+
+<ng-template #nodeTemplate let-node>
+    <svg:g class="node" xmlns="http://www.w3.org/2000/xhtml" width="150" height="100">
+      <svg:foreignObject width="100" height="50">
+        <xhtml:div class="cardContainer" xmlns="http://www.w3.org/1999/xhtml" [ngStyle]="getStyles(node)">
+          <label class="name" style="text-align: center;">{{ node.label }}</label>
+          <!--<label>{{ node.data.role }}</label>
+          <label>{{ node.data.office }}</label>-->
+          
+        </xhtml:div>
+      </svg:foreignObject>
+      <svg:image
+            *ngIf="node.data.iconPath"
+            [attr.xlink:href]="node.data.iconPath"
+            [attr.width]="30"
+            [attr.height]="30"
+            [attr.x]="33"
+            [attr.y]="-30"></svg:image>
+    </svg:g>
+  </ng-template>
+
+</ngx-graph>
