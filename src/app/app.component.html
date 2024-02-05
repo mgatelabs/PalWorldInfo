@@ -1,15 +1,23 @@
 <mat-toolbar color="primary">
     <span>PalWorld Info</span>
   
-    <button mat-button color="accent" routerLink="/">Home</button>
-    <button mat-button color="accent"  routerLink="/mypals">My Pals</button>
-    <button mat-button color="accent" routerLink="/parents">Parents</button>
-    <button mat-button color="accent" routerLink="/canbreed">Can Breed</button>
+    <button mat-button routerLink="/" *ngIf="!showMenu">Home</button>
+    <button mat-button routerLink="/mypals" *ngIf="!showMenu">My Pals</button>
+    <button mat-button routerLink="/parents" *ngIf="!showMenu">Parents</button>
+    <button mat-button routerLink="/canbreed" *ngIf="!showMenu">Can Breed</button>
 
     <!-- This fills the remaining space of the current row -->
-    <!--<span class="example-fill-remaining-space"></span>
-  
-    <span>Right Aligned Text</span>-->
+    <span class="example-fill-remaining-space"></span>
+
+
+    <button mat-button [matMenuTriggerFor]="menu" *ngIf="showMenu">Menu</button>
+    <mat-menu #menu="matMenu">
+        <button mat-menu-item routerLink="/">Home</button>
+        <button mat-menu-item  routerLink="/mypals">My Pals</button>
+        <button mat-menu-item routerLink="/parents">Parents</button>
+        <button mat-menu-item routerLink="/canbreed">Can Breed</button>
+    </mat-menu>
+
 </mat-toolbar>
 
 <router-outlet></router-outlet>

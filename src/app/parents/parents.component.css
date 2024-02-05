@@ -1,5 +1,12 @@
-.grid-image {
-    width: 100%;
+.grid-image-left {
+    width: 50%;
+    height: 100%;
+    object-fit: cover; /* Ensure the image covers the entire tile */
+    transform: scaleX(-1);
+}
+
+.grid-image-right {
+    width: 50%;
     height: 100%;
     object-fit: cover; /* Ensure the image covers the entire tile */
 }
