@@ -6,11 +6,10 @@ import { ParentsComponent } from './parents/parents.component';
 import { CanBreedComponent } from './can-breed/can-breed.component';
 
 const routes: Routes = [
-  { path: 'home', component: HomeComponent },
   { path: 'mypals', component: MyPalsComponent },
   { path: 'parents', component: ParentsComponent },
   { path: 'canbreed', component: CanBreedComponent },
-
+  { path: '', component: HomeComponent }
 ];
 
 @NgModule({
