@@ -1,6 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { PalData } from '../pal-data';
 import { PalsService } from '../pals.service';
+import {BreakpointObserver, Breakpoints} from '@angular/cdk/layout';
+import {takeUntil} from 'rxjs/operators';
 
 @Component({
   selector: 'app-my-pals',
@@ -10,7 +12,42 @@ import { PalsService } from '../pals.service';
 export class MyPalsComponent implements OnInit {
   palData: PalData = new PalData();
 
-  constructor(private palsService: PalsService) {
+  numberOfColumns: number = 4;
+
+  constructor(private palsService: PalsService, breakpointObserver: BreakpointObserver) {
+
+    breakpointObserver.observe([
+      Breakpoints.XSmall,
+      Breakpoints.Small,
+    ]).subscribe(result => {
+      if (result.matches) {
+        this.numberOfColumns = 1;
+      }
+    });
+
+    breakpointObserver.observe([
+      Breakpoints.Medium
+    ]).subscribe(result => {
+      if (result.matches) {
+        this.numberOfColumns = 2;
+      }
+    });
+
+    breakpointObserver.observe([
+      Breakpoints.Large
+    ]).subscribe(result => {
+      if (result.matches) {
+        this.numberOfColumns = 4;
+      }
+    });
+
+    breakpointObserver.observe([
+      Breakpoints.XLarge
+    ]).subscribe(result => {
+      if (result.matches) {
+        this.numberOfColumns = 6;
+      }
+    });
 
   }
 

@@ -3,6 +3,7 @@ import { PalData } from '../pal-data';
 import { PalsService } from '../pals.service';
 import { PalInfo } from '../pal-info';
 import { zip } from 'rxjs';
+import { BreakpointObserver, Breakpoints } from '@angular/cdk/layout';
 
 @Component({
   selector: 'app-can-breed',
@@ -15,7 +16,42 @@ export class CanBreedComponent implements OnInit {
 
   palData: PalData = new PalData();
 
-  constructor(private palsService: PalsService) {
+  numberOfColumns: number = 4;
+
+  constructor(private palsService: PalsService, breakpointObserver: BreakpointObserver) {
+
+    breakpointObserver.observe([
+      Breakpoints.XSmall,
+      Breakpoints.Small,
+    ]).subscribe(result => {
+      if (result.matches) {
+        this.numberOfColumns = 1;
+      }
+    });
+
+    breakpointObserver.observe([
+      Breakpoints.Medium
+    ]).subscribe(result => {
+      if (result.matches) {
+        this.numberOfColumns = 2;
+      }
+    });
+
+    breakpointObserver.observe([
+      Breakpoints.Large
+    ]).subscribe(result => {
+      if (result.matches) {
+        this.numberOfColumns = 4;
+      }
+    });
+
+    breakpointObserver.observe([
+      Breakpoints.XLarge
+    ]).subscribe(result => {
+      if (result.matches) {
+        this.numberOfColumns = 6;
+      }
+    });
 
   }
 
@@ -33,9 +69,9 @@ export class CanBreedComponent implements OnInit {
     for (let pal of this.palData.pals) {
       if (pal.owned === false) {
 
-        for (let [key, value] of pal.parents) {
-          let parentA = this.palData.getPalById(key);
-          let parentB = this.palData.getPalById(value);
+        for (let palPair of pal.parents) {
+          let parentA = palPair.a;
+          let parentB = palPair.b;
 
           let flip = false;
 

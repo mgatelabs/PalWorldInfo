@@ -7,7 +7,7 @@ export class PalInfo {
     public owned: boolean = false;
 
     // My 
-    public parents: Map<string, string> = new Map(); 
+    public parents: Set<PalPair> = new Set<PalPair>(); 
     public children: Map<string, string> = new Map(); 
 
     constructor(public palId: string, public palName: string) {
@@ -33,6 +33,7 @@ export class PalInfo {
     }
 
     public addParentPair(a: PalInfo, b: PalInfo) {
+        
         let swap = false;
         if (a.index == b.index) {
             if (a.offset == b.offset) {
@@ -51,6 +52,6 @@ export class PalInfo {
             a = b;
             b = c;
         }
-        this.parents.set(a.palId, b.palId);
+        this.parents.add(new PalPair(a, b));
     }
 }

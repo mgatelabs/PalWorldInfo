@@ -41,7 +41,7 @@ export class OverallPanelComponent {
       //this.generatePossibleParents("53");
     });
   }
-
+/*
   public generatePossibleParents(palId: string) {
     this.nodes = [];
     this.links = [];
@@ -214,7 +214,7 @@ export class OverallPanelComponent {
     this.update$.next(true);
     console.log('Fired');
   }
-
+  */
   public getStyles(node: Node): any {
 
     if (node.data.role === 0) {

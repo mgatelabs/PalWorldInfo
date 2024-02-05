@@ -21,6 +21,7 @@ import { HomeComponent } from './home/home.component';
 import { MyPalsComponent } from './my-pals/my-pals.component';
 import { ParentsComponent } from './parents/parents.component';
 import { CanBreedComponent } from './can-breed/can-breed.component';
+import {LayoutModule} from '@angular/cdk/layout';
 
 @NgModule({
     declarations: [
@@ -48,7 +49,8 @@ import { CanBreedComponent } from './can-breed/can-breed.component';
         MatButtonModule,
         MatGridListModule,
         MatCheckboxModule,
-        MatCardModule
+        MatCardModule,
+        LayoutModule
     ]
 })
 export class AppModule { }

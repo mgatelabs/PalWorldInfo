@@ -1,1 +1,23 @@
-<p>parents works!</p>
+<blockquote>Use this page to see all the possible parents that can create the selected child.</blockquote>
+
+<app-image-select [palData]="palData" title="Selected Child" (selectedPalIdEmitter)="showParentsFor($event)"></app-image-select>
+
+<mat-grid-list [cols]="numberOfColumns" rowHeight="200px" gutterSize="16px">
+    <mat-grid-tile *ngFor="let breeding of availableParents">
+        
+        <img src="./assets/images/pals/pal{{ breeding.child.palId }}.png" alt="{{ breeding.child.palName }} Icon" class="grid-image">
+        
+        <div class="pal-number">#{{ breeding.child.palId }}</div>
+
+        <div class="grid-footer">
+            
+            <img src="./assets/images/pals/pal{{ breeding.parentA.palId }}.png" class="grid-icon"/>
+            {{ breeding.parentA.palName }} + 
+            <img src="./assets/images/pals/pal{{ breeding.parentB.palId }}.png" class="grid-icon"/>
+            {{ breeding.parentB.palName }}
+        
+        </div>
+
+
+    </mat-grid-tile>
+  </mat-grid-list>

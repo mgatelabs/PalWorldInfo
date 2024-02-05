@@ -3,7 +3,7 @@
 <button mat-button color="primary" (click)="calculateBreedingPairs()">Calculate Breedable Pals</button>
 </div>
 
-<mat-grid-list cols="3" rowHeight="200px" gutterSize="16px">
+<mat-grid-list [cols]="numberOfColumns" rowHeight="200px" gutterSize="16px">
     <mat-grid-tile *ngFor="let breeding of availableChildren">
         
         <img src="./assets/images/pals/pal{{ breeding.child.palId }}.png" alt="{{ breeding.child.palName }} Icon" class="grid-image">

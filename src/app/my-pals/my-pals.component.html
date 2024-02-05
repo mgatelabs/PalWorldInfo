@@ -1,4 +1,4 @@
-<mat-grid-list cols="4" rowHeight="200px" gutterSize="16px">
+<mat-grid-list [cols]="numberOfColumns" rowHeight="200px" gutterSize="16px">
     <mat-grid-tile *ngFor="let category of palData.pals">
         <img src="./assets/images/pals/pal{{ category.palId }}.png" alt="{{ category.palName }} Icon" class="grid-image">
         

@@ -1,4 +1,4 @@
-import { Component, Input, OnChanges, SimpleChanges } from '@angular/core';
+import { Component, EventEmitter, Input, OnChanges, Output, SimpleChanges } from '@angular/core';
 import { PalData } from '../pal-data';
 
 @Component({
@@ -9,6 +9,8 @@ import { PalData } from '../pal-data';
 export class ImageSelectComponent implements OnChanges {
   @Input() palData: PalData = new PalData();
   @Input() title: string = 'undefined';
+  @Output() selectedPalIdEmitter: EventEmitter<string> = new EventEmitter<string>();;
+
   options: Category[] = [];
 
   ngOnChanges(changes: SimpleChanges): void {
@@ -18,7 +20,7 @@ export class ImageSelectComponent implements OnChanges {
   }
 
   changeClient(value: string) {
-    console.log(value);
+    this.selectedPalIdEmitter.emit(value);
   }
 
   private generateOptions(): void {
@@ -30,7 +32,6 @@ export class ImageSelectComponent implements OnChanges {
       value: item.palId,
       image: "./assets/images/pals/pal" + item.palId + ".png"
     }));
-    console.log(this.options);
   }
 
 }
