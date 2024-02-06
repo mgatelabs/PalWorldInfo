@@ -30,6 +30,12 @@ export class PalsService {
             palData.addPal(key, value);
           });
 
+          palData.pals.sort((a, b) => {
+            let sideA = (a.index * 10) + a.offset;
+            let sideB = (b.index * 10) + b.offset;
+            return sideA - sideB;
+          });
+
           console.log('Pal Database [END]');
 
           palData.loadOwnedSet();

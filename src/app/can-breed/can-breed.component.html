@@ -1,7 +1,8 @@
-<blockquote>Use this page to calculate which Pals you can easily breed right now.  Just make sure you've filled out the "MY Pals" page, so the system can determine what is available.</blockquote>
+<blockquote class="top-notice">Use this page to calculate which Pals you can easily breed right now.  Just make sure you've filled out the <button mat-button color="primary" routerLink="/mypals">My Pals</button> page, so the system can determine what is available.</blockquote>
 <div style="text-align: center;">
-<button mat-button color="primary" (click)="calculateBreedingPairs()">Calculate Breedable Pals</button>
+<button mat-raised-button color="primary" (click)="calculateBreedingPairs()">Calculate Breedable Pals</button>
 </div>
+<br/>
 
 <mat-grid-list [cols]="numberOfColumns" rowHeight="200px" gutterSize="16px">
     <mat-grid-tile *ngFor="let breeding of availableChildren">

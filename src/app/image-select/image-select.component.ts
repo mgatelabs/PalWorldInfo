@@ -8,8 +8,9 @@ import { PalData } from '../pal-data';
 })
 export class ImageSelectComponent implements OnChanges {
   @Input() palData: PalData = new PalData();
-  @Input() title: string = 'undefined';
+  @Input() title: string = 'undefined';  
   @Output() selectedPalIdEmitter: EventEmitter<string> = new EventEmitter<string>();;
+  @Input() selectedValue: string = '';
 
   options: Category[] = [];
 

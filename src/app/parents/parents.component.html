@@ -1,6 +1,8 @@
-<blockquote>Use this page to see all the possible parents that can create the selected child.</blockquote>
-
-<app-image-select [palData]="palData" title="Selected Child" (selectedPalIdEmitter)="showParentsFor($event)"></app-image-select>
+<blockquote class="top-notice">
+    Use this page to see all the possible parents that can create the selected child.
+    <br/>
+    <app-image-select [selectedValue]="selectedPalId" [palData]="palData" title="Selected Child" (selectedPalIdEmitter)="showParentsFor($event)"></app-image-select>
+</blockquote>
 
 <mat-grid-list [cols]="numberOfColumns" rowHeight="200px" gutterSize="16px">
     <mat-grid-tile *ngFor="let breeding of availableParents">
@@ -8,8 +10,11 @@
         <img src="./assets/images/pals/pal{{ breeding.parentA.palId }}.png" alt="{{ breeding.child.palName }} Icon" class="grid-image-left">
         <img src="./assets/images/pals/pal{{ breeding.parentB.palId }}.png" alt="{{ breeding.child.palName }} Icon" class="grid-image-right">
         
-        <div class="grid-footer">            
-            {{ breeding.parentA.palName }} + {{ breeding.parentB.palName }}        
+        <div class="grid-footer">
+            
+            <button mat-raised-button color="primary" (click)="changeParentTo(breeding.parentA.palId)">{{ breeding.parentA.palName }}</button> + 
+            <button mat-raised-button color="accent" (click)="changeParentTo(breeding.parentB.palId)">{{ breeding.parentB.palName }}</button>
+
         </div>
 
     </mat-grid-tile>

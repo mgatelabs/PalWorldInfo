@@ -3,6 +3,7 @@ import { PalData } from '../pal-data';
 import { PalsService } from '../pals.service';
 import {BreakpointObserver, Breakpoints} from '@angular/cdk/layout';
 import {takeUntil} from 'rxjs/operators';
+import { PalInfo } from '../pal-info';
 
 @Component({
   selector: 'app-my-pals',
@@ -57,12 +58,21 @@ export class MyPalsComponent implements OnInit {
     });
   }
 
+  flipCheckboxChange(item: PalInfo): void {
+    item.owned = !item.owned;
+    this.palData.saveOwnedSet();
+  }
+
   onCheckboxChange(item: any): void {
-    console.log(`Checkbox value changed for ${item.palName}. Checked: ${item.owned}`);
+    //console.log(`Checkbox value changed for ${item.palName}. Checked: ${item.owned}`);
     // You can perform additional actions based on the checkbox change here
 
     this.palData.saveOwnedSet();
 
+  }
+
+  getImageClassFor(palInfo: PalInfo) {
+    return !palInfo.owned ? "washed" : "";
   }
 
 }

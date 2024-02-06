@@ -5,6 +5,7 @@
     <button mat-button routerLink="/mypals" *ngIf="!showMenu">My Pals</button>
     <button mat-button routerLink="/parents" *ngIf="!showMenu">Parents</button>
     <button mat-button routerLink="/canbreed" *ngIf="!showMenu">Can Breed</button>
+    <button mat-button routerLink="/relatedpals" *ngIf="!showMenu">Related Pals</button>
 
     <!-- This fills the remaining space of the current row -->
     <span class="example-fill-remaining-space"></span>
@@ -16,8 +17,12 @@
         <button mat-menu-item  routerLink="/mypals">My Pals</button>
         <button mat-menu-item routerLink="/parents">Parents</button>
         <button mat-menu-item routerLink="/canbreed">Can Breed</button>
+        <button mat-menu-item routerLink="/relatedpals">Related Pals</button>
+        
     </mat-menu>
 
 </mat-toolbar>
 
 <router-outlet></router-outlet>
+
+<blockquote id="footer">We are not affiliated, associated, authorized, endorsed by, or in any way officially connected with the Pockpair, or any of its subsidiaries or its affiliates.</blockquote>

@@ -1,6 +1,6 @@
 <mat-form-field>
     <mat-label>{{title}}:</mat-label>
-    <mat-select (selectionChange)="changeClient($event.value)">
+    <mat-select (selectionChange)="changeClient($event.value)" [(ngModel)]="selectedValue">
         <mat-option *ngFor="let category of options" [value]="category.value">
         <img with="20" height="20" [src]="category.image">
         {{category.viewValue}}

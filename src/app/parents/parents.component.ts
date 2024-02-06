@@ -17,6 +17,8 @@ export class ParentsComponent implements OnInit {
 
   numberOfColumns: number = 4;
 
+  selectedPalId: string = "";
+
   constructor(private palsService: PalsService, breakpointObserver: BreakpointObserver) {
 
     breakpointObserver.observe([
@@ -58,6 +60,11 @@ export class ParentsComponent implements OnInit {
     this.palsService.getCombinedData().subscribe(data => {
       this.palData = data;
     });
+  }
+
+  changeParentTo(palId: string) {
+    this.selectedPalId = palId;
+    this.showParentsFor(palId);
   }
 
   showParentsFor(palId: string) {

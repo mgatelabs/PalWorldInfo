@@ -1,0 +1,12 @@
+<blockquote class="top-notice">    
+    Use this page to calculate if there is a relation between various Pals.
+</blockquote>
+<div style="text-align: center;">
+
+    <app-image-select [palData]="palData" title="Desired Parent A" (selectedPalIdEmitter)="selectParentA($event)"></app-image-select>
+    + <app-image-select [palData]="palData" title="Desired Parent B" (selectedPalIdEmitter)="selectParentB($event)"></app-image-select>
+    = <app-image-select [palData]="palData" title="Desired Child" (selectedPalIdEmitter)="selectChild($event)"></app-image-select>
+<br/>
+<button mat-raised-button color="primary" (click)="calculateRelationship()">Calculate Relations</button>
+</div>
+<br/>

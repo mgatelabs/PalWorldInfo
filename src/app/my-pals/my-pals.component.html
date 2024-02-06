@@ -1,13 +1,17 @@
 <mat-grid-list [cols]="numberOfColumns" rowHeight="200px" gutterSize="16px">
-    <mat-grid-tile *ngFor="let category of palData.pals">
-        <img src="./assets/images/pals/pal{{ category.palId }}.png" alt="{{ category.palName }} Icon" class="grid-image">
-        
-        <div class="pal-number">#{{ category.palId }}</div>
+    <mat-grid-tile *ngFor="let pal of palData.pals">
 
+        <div class="pal-number">#{{ pal.palId }}</div>   
+
+        <div class="click-hover" (click)="flipCheckboxChange(pal)"></div>
+
+        <img [className]="getImageClassFor(pal)" src="./assets/images/pals/pal{{ pal.palId }}.png" alt="{{ pal.palName }} Icon" class="grid-image">
+    
         <div class="grid-footer">
             
-            <mat-checkbox class="custom-checkbox" color="primary" value="{{category.palId}}" [(ngModel)]="category.owned" (change)="onCheckboxChange(category)"></mat-checkbox>
+            <mat-checkbox class="custom-checkbox" color="primary" value="{{pal.palId}}" [(ngModel)]="pal.owned" (change)="onCheckboxChange(pal)"></mat-checkbox>
             
-            {{ category.palName }}</div>
+            {{ pal.palName }}
+        </div>
     </mat-grid-tile>
   </mat-grid-list>

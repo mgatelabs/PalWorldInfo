@@ -22,6 +22,7 @@ import { MyPalsComponent } from './my-pals/my-pals.component';
 import { ParentsComponent } from './parents/parents.component';
 import { CanBreedComponent } from './can-breed/can-breed.component';
 import {LayoutModule} from '@angular/cdk/layout';
+import { RelatedPalsComponent } from './related-pals/related-pals.component';
 
 @NgModule({
     declarations: [
@@ -31,7 +32,8 @@ import {LayoutModule} from '@angular/cdk/layout';
         HomeComponent,
         MyPalsComponent,
         ParentsComponent,
-        CanBreedComponent   
+        CanBreedComponent,
+        RelatedPalsComponent   
     ],
     providers: [],
     bootstrap: [AppComponent],

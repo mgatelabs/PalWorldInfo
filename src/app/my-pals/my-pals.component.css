@@ -2,6 +2,11 @@
     width: 100%;
     height: 100%;
     object-fit: cover; /* Ensure the image covers the entire tile */
+    z-index: -10;
+}
+
+.washed {
+    filter: grayscale(100%);
 }
 
 .grid-footer {
@@ -18,8 +23,19 @@
 
 .pal-number {
     position: absolute;
-    left: 3px;
-    top: 3px;
+    left: 6px;
+    top: 6px;
     font-size: 32px;
     font-weight: bold;
+    z-index: 10;
+}
+
+.click-hover {
+    position: absolute;
+    left: 20%;
+    right: 20%;
+    top: 10%;
+    bottom: 70px;
+    cursor: pointer;
+    z-index: 10;
 }
