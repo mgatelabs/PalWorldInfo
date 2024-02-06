@@ -1,12 +1,59 @@
-<blockquote class="top-notice">    
-    Use this page to calculate if there is a relation between various Pals.
+<blockquote class="top-notice">
+    <p>
+    Use this page to calculate if there is a relation between various Pals.  Read the results from the top down.<br />
+    </p>
+    <p>
+        For example, let’s say you have two pals (<b>Lamball</b> & <b>Cattiva</b>) that have really good traits that you want to pass onto a Suzaka Aqua.  You would set <b>Parent A = Lamball</b>, <b>Parent B = Cattiva</b> and <b>Desired Child = Suzaka Aqua</b>.  Then hit <b>Calculate Relation</b>, wait a bit and a list of potential breeding pairs will be presented, where both pals are in the chain.
+    </p>
+
 </blockquote>
 <div style="text-align: center;">
 
-    <app-image-select [palData]="palData" title="Desired Parent A" (selectedPalIdEmitter)="selectParentA($event)"></app-image-select>
-    + <app-image-select [palData]="palData" title="Desired Parent B" (selectedPalIdEmitter)="selectParentB($event)"></app-image-select>
-    = <app-image-select [palData]="palData" title="Desired Child" (selectedPalIdEmitter)="selectChild($event)"></app-image-select>
-<br/>
-<button mat-raised-button color="primary" (click)="calculateRelationship()">Calculate Relations</button>
+    <app-image-select [palData]="palData" title="Desired Parent A *"
+        (selectedPalIdEmitter)="selectParentA($event)"></app-image-select>
+    And / Or <app-image-select [palData]="palData" title="Desired Parent B"
+        (selectedPalIdEmitter)="selectParentB($event)"></app-image-select>
+    = <app-image-select [palData]="palData" title="Desired Child *"
+        (selectedPalIdEmitter)="selectChild($event)"></app-image-select>
+    &nbsp;
+    <mat-form-field>
+        <mat-label>Pal Source</mat-label>
+        <mat-select name="OwnedPals" [(ngModel)]="palSource">
+            <mat-option value="my">My Pals</mat-option>
+            <mat-option value="all">All Pals</mat-option>
+        </mat-select>
+    </mat-form-field>
+    &nbsp;
+    <mat-form-field>
+        <mat-label>Limit</mat-label>
+        <mat-select name="PalLimit" [(ngModel)]="palLimit">
+            <mat-option value="5">5 Combos</mat-option>
+            <mat-option value="10">10 Combos</mat-option>
+            <mat-option value="20">20 Combos</mat-option>
+            <mat-option value="25">25 Combos</mat-option>
+            <mat-option value="30">30 Combos</mat-option>
+            <mat-option value="35">35 Combos</mat-option>
+            <mat-option value="40">40 Combos</mat-option>
+            <mat-option value="50">50 Combos</mat-option>
+            <mat-option value="100">100 Combos</mat-option>
+        </mat-select>
+    </mat-form-field>
+
+    <mat-error *ngIf="(parentA === '' && parentB === '') || child === ''">
+        Please select at least one parent and child!
+    </mat-error>
+
+    <br />
+    <button mat-raised-button color="primary" (click)="calculateRelationship()">Calculate Relations</button>
 </div>
-<br/>
+<br />
+
+<div *ngFor="let row of results">
+    <h2>{{row.paths.length}} Pairs</h2>
+    <mat-list>
+        <mat-list-item *ngFor="let pair of row.paths.reverse()">#{{pair.a.palId}} <span
+                [style.font-weight]="getStyleForPal(pair.a.palId)">{{pair.a.palName}}</span> + #{{pair.b.palId}} <span
+                [style.font-weight]="getStyleForPal(pair.b.palId)">{{pair.b.palName}}</span></mat-list-item>
+    </mat-list>
+    <hr />
+</div>

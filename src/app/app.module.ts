@@ -9,6 +9,7 @@ import { HttpClientModule } from '@angular/common/http';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { ImageSelectComponent } from './image-select/image-select.component';
 import { FormsModule } from '@angular/forms';
+import {MatListModule} from '@angular/material/list';
 import {MatButtonModule} from '@angular/material/button';
 import {MatCardModule} from '@angular/material/card';
 import {MatCheckboxModule} from '@angular/material/checkbox';
@@ -52,7 +53,8 @@ import { RelatedPalsComponent } from './related-pals/related-pals.component';
         MatGridListModule,
         MatCheckboxModule,
         MatCardModule,
-        LayoutModule
+        LayoutModule,
+        MatListModule
     ]
 })
 export class AppModule { }
