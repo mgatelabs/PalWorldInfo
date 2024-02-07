@@ -1,8 +1,60 @@
-<mat-card class="example-card">
-    <mat-card-header>
-        <mat-card-title>Pal Database</mat-card-title>
-    </mat-card-header>
-    <mat-card-content>
-        <p>The database is currently tracking {{palData.pals.length}} pals</p>
-    </mat-card-content>
-</mat-card>
+
+
+
+
+<mat-grid-list [cols]="2" rowHeight="500px" gutterSize="16px">
+    <mat-grid-tile>
+
+        <mat-card class="example-card">
+            <mat-card-header>
+                <mat-card-title>Pal Database</mat-card-title>
+            </mat-card-header>
+            <mat-card-content>
+                <p>The database is currently tracking {{palData.pals.length}} pals (including varients)</p>
+                <ul>
+                <li>If this is you first time here, please use the <button mat-button color="primary" routerLink="/mypals">My Pals</button> page to indicate which pals you currently possess.</li>
+                <li>After you have all your pals marked down, then you have a few options.  You can use <button mat-button color="primary" routerLink="/canbreed">Can Breed</button> to determine pals that you could easily breed to fill up your pal index.</li>
+                <li>Or you can dive into <button mat-button color="primary" routerLink="/relatedpals">Related Pals</button> to see how your pals can interbreed to pass on the best attributes.</li>
+            </ul>
+            </mat-card-content>
+        </mat-card>
+
+    </mat-grid-tile>    <mat-grid-tile>
+        <mat-card class="example-card">
+            <mat-card-header>
+                <mat-card-title>App Developer Notice</mat-card-title>
+            </mat-card-header>
+            <mat-card-content>
+                
+                <p>
+                Welcome to PalWorld Info web app, proudly crafted by the developer behind Mobile VR Station! Dive into an immersive experience like never before. Explore our app available on iOS, Android, and Meta Quest for an unparalleled journey. Download now and embark on your next adventure!"
+                </p>
+                <p>
+                Links:
+                </p>       
+                <ul>
+                <li>iOS Edition: 
+                    <a target="_blank" href="https://apps.apple.com/us/app/mobile-vr-station-ported/id6473814876">New Version</a> - 
+                    <a target="_blank" href="https://apps.apple.com/us/app/mobile-vr-station/id959820493">Old Version</a>
+                </li>
+                <li>Android Edition: 
+        
+                    <a target="_blank" href="https://play.google.com/store/apps/details?id=com.mgatelabs.mobilevrstationunified&pli=1">New Version</a> - 
+                    <a target="_blank" href="https://play.google.com/store/apps/details?id=com.mgatelabs.mobilevrstation&hl=en_US&gl=US">Old Version</a>
+        
+                </li>
+                <li>Meta Quest Edition: 
+        
+                    <a target="_blank" href="https://www.oculus.com/experiences/quest/3887008398005125/">New Version</a>
+        
+                </li>
+                </ul>
+
+                <blockquote class="note">We are not affiliated, associated, authorized, endorsed by, or in any way officially connected with the Pockpair, or any of its subsidiaries or its affiliates.</blockquote>
+
+            </mat-card-content>
+        </mat-card>
+
+
+    </mat-grid-tile>
+  </mat-grid-list>
