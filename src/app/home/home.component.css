@@ -1,9 +1,10 @@
-.example-card {
-    max-width: 400px;
-  }
-
   .note {
     font-weight:bold;
     font-family: monospace;
     font-size: 14px;
+  }
+
+  .example-card {
+    height: 400px;
+    margin: 16px;
   }

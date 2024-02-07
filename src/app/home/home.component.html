@@ -2,7 +2,7 @@
 
 
 
-<mat-grid-list [cols]="2" rowHeight="500px" gutterSize="16px">
+<mat-grid-list [cols]="numberOfColumns" rowHeight="500px">
     <mat-grid-tile>
 
         <mat-card class="example-card">
@@ -19,7 +19,9 @@
             </mat-card-content>
         </mat-card>
 
-    </mat-grid-tile>    <mat-grid-tile>
+    </mat-grid-tile>
+    
+    <mat-grid-tile>
         <mat-card class="example-card">
             <mat-card-header>
                 <mat-card-title>App Developer Notice</mat-card-title>
@@ -50,11 +52,20 @@
                 </li>
                 </ul>
 
-                <blockquote class="note">We are not affiliated, associated, authorized, endorsed by, or in any way officially connected with the Pockpair, or any of its subsidiaries or its affiliates.</blockquote>
-
             </mat-card-content>
         </mat-card>
 
+
+    </mat-grid-tile>
+    <mat-grid-tile>
+        <mat-card class="example-card">
+            <mat-card-header>
+                <mat-card-title>Notice</mat-card-title>
+            </mat-card-header>
+            <mat-card-content>            
+                <blockquote class="note">We are not affiliated, associated, authorized, endorsed by, or in any way officially connected with the Pockpair, or any of its subsidiaries or its affiliates.</blockquote>
+            </mat-card-content>
+        </mat-card>
 
     </mat-grid-tile>
   </mat-grid-list>

@@ -11,7 +11,7 @@
     <span class="example-fill-remaining-space"></span>
 
 
-    <button mat-button [matMenuTriggerFor]="menu" *ngIf="showMenu">Menu</button>
+    <button mat-button [matMenuTriggerFor]="menu" *ngIf="showMenu"><mat-icon>menu</mat-icon></button>
     <mat-menu #menu="matMenu">
         <button mat-menu-item routerLink="/">Home</button>
         <button mat-menu-item  routerLink="/mypals">My Pals</button>
