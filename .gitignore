@@ -40,24 +40,3 @@ testem.log
 # System files
 .DS_Store
 Thumbs.db
-src/android-chrome-192x192.png
-src/android-chrome-256x256.png
-src/apple-touch-icon.png
-src/favicon-16x16.png
-src/favicon-32x32.png
-src/index.html
-src/mstile-150x150.png
-src/safari-pinned-tab.svg
-src/app/app.component.html
-src/app/home/home.component.css
-src/app/home/home.component.html
-src/app/home/home.component.ts
-src/assets/android-chrome-192x192.png
-src/assets/android-chrome-256x256.png
-src/assets/apple-touch-icon.png
-src/assets/browserconfig.xml
-src/assets/favicon-16x16.png
-src/assets/favicon-32x32.png
-src/assets/mstile-150x150.png
-src/assets/safari-pinned-tab.svg
-src/assets/site.webmanifest
