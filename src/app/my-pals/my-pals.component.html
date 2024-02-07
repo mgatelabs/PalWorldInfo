@@ -1,3 +1,6 @@
+<blockquote class="top-notice">Tap on pals you own to mark them as available.</blockquote>
+<br/>
+
 <mat-grid-list [cols]="numberOfColumns" rowHeight="200px" gutterSize="16px">
     <mat-grid-tile *ngFor="let pal of palData.pals">
 
@@ -5,7 +8,7 @@
 
         <div class="click-hover" (click)="flipCheckboxChange(pal)"></div>
 
-        <img [className]="getImageClassFor(pal)" src="./assets/images/pals/pal{{ pal.palId }}.png" alt="{{ pal.palName }} Icon" class="grid-image">
+        <img [className]="getImageClassFor(pal)" src="./assets/images/pals/pal{{ pal.palId }}.png" alt="{{ pal.palName }} Icon">
     
         <div class="grid-footer">
             

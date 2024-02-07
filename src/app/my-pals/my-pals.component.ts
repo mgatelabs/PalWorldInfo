@@ -72,7 +72,7 @@ export class MyPalsComponent implements OnInit {
   }
 
   getImageClassFor(palInfo: PalInfo) {
-    return !palInfo.owned ? "washed" : "";
+    return !palInfo.owned ? "washed grid-image" : "grid-image";
   }
 
 }
