@@ -7,11 +7,15 @@
 <mat-grid-list [cols]="numberOfColumns" rowHeight="200px" gutterSize="16px">
     <mat-grid-tile *ngFor="let breeding of availableParents">
         
-        <img src="./assets/images/pals/pal{{ breeding.parentA.palId }}.png" alt="{{ breeding.child.palName }} Icon" class="grid-image-left">
-        <img src="./assets/images/pals/pal{{ breeding.parentB.palId }}.png" alt="{{ breeding.child.palName }} Icon" class="grid-image-right">
+        <img src="./assets/images/pals/pal{{ breeding.parentA.palId }}.png" alt="{{ breeding.child.palName }} Icon" class="grid-image-left" [className]="getClassForImage(true, breeding.parentA)">
+        <img src="./assets/images/pals/pal{{ breeding.parentB.palId }}.png" alt="{{ breeding.child.palName }} Icon" class="grid-image-right" [className]="getClassForImage(false, breeding.parentB)">
         
+        <mat-icon [ngClass]="getClassForFavorite(true, breeding.parentA)">favorite</mat-icon>
+
+        <mat-icon [ngClass]="getClassForFavorite(false, breeding.parentB)">favorite</mat-icon>
+
         <div class="grid-footer">
-            
+
             <button mat-raised-button color="primary" (click)="changeParentTo(breeding.parentA.palId)">{{ breeding.parentA.palName }}</button> + 
             <button mat-raised-button color="accent" (click)="changeParentTo(breeding.parentB.palId)">{{ breeding.parentB.palName }}</button>
 

@@ -62,6 +62,14 @@ export class ParentsComponent implements OnInit {
     });
   }
 
+  getClassForImage(isLeft: boolean, pal:PalInfo) {
+    return (isLeft ? 'grid-image-left' : 'grid-image-right') + (!pal.owned ? ' washed' : '');
+  }
+
+  getClassForFavorite(isLeft: boolean, pal:PalInfo) {
+    return (isLeft ? 'left-fav' : 'right-fav') + (!pal.owned ? ' hidden' : '');
+  }
+
   changeParentTo(palId: string) {
     this.selectedPalId = palId;
     this.showParentsFor(palId);
